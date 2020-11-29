@@ -21,6 +21,7 @@ note here the reliance of operator precidence from right to left.
 
 Given two vectors of the same length, calculate the sample covariance with the following operator
 ```  Dyalog
+⍝ Join rows into a matrix one below the other, then subtract mean of each row, multiply down columns to get (xi-xbar)(yi-ybar), sum and divide
 Covar ← { Joint ← ⍺,[0.5]⍵ ⋄ (÷(⍴Joint[1;])-1) × +/×⌿Joint -[1] (+/Joint)÷(⍴Joint)[2] }
 ```
 This is useful because we can now apply it with an outer product, given an array of arrays of prices, the variance covariance matrix is easily obtained with
