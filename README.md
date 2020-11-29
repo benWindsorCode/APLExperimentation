@@ -26,6 +26,13 @@ Covar ← { Joint ← ⍺,[0.5]⍵ ⋄ (÷(⍴Joint[1;])-1) × +/×⌿Joint -[1]
 This is useful because we can now apply it with an outer product, given an array of arrays of prices, the variance covariance matrix is easily obtained with
 ``` Dyalog
 Examples ← (1 2 3 55) (4 5 6 ¯2) (7 8 9 12)
-VarCovar ← ∘.Covar⍨Examples
+∘.Covar⍨Examples
+┌────────────┬────────────┬────────────┐
+│702.9166667 │¯92.08333333│53.66666667 │
+├────────────┼────────────┼────────────┤
+│¯92.08333333│12.91666667 │¯6.333333333│
+├────────────┼────────────┼────────────┤
+│53.66666667 │¯6.333333333│4.666666667 │
+└────────────┴────────────┴────────────┘
 ```
 applying Covariance as an outer product over the elements of the array, where each element is itself an array of the sample values.
