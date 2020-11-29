@@ -18,3 +18,14 @@ Or using the above mean function we could simplify to
 SampleVar ← { Sums ← +/⍵ -[1] Mean ⍵ ⋄ Sums ÷ (⍴⍵)[2] - 1}
 ```
 note here the reliance of operator precidence from right to left. 
+
+Given two vectors of the same length, calculate the sample covariance with the following operator
+```  Dyalog
+Covar ← { Joint ← ⍺,[0.5]⍵ ⋄ (÷(⍴Joint[1;])-1) × +/×⌿Joint -[1] (+/Joint)÷(⍴Joint)[2] }
+```
+This is useful because we can now apply it with an outer product, given an array of arrays of prices, the variance covariance matrix is easily obtained with
+``` Dyalog
+Examples ← (1 2 3 55) (4 5 6 ¯2) (7 8 9 12)
+VarCovar ← ∘.Covar⍨Examples
+```
+applying Covariance as an outer product over the elements of the array, where each element is itself an array of the sample values.
