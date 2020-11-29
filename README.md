@@ -37,3 +37,8 @@ Examples ← (1 2 3 55) (4 5 6 ¯2) (7 8 9 12)
 └────────────┴────────────┴────────────┘
 ```
 applying Covariance as an outer product over the elements of the array, where each element is itself an array of the sample values.
+
+Given a square matrix on the left and a column vector on the right, you can compute the quadratic form (x^t)A(x) using
+``` Dyalog
+QuadForm ← { (⍉⍵) +.× ⍺ +.× ⍵ }
+```
