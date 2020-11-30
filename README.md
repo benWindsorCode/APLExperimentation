@@ -42,3 +42,16 @@ Given a square matrix on the left and a column vector on the right, you can comp
 ``` Dyalog
 QuadForm ← { (⍉⍵) +.× ⍺ +.× ⍵ }
 ```
+# Value At Risk
+To use the value at risk calculator pass it an array structured as
+``` Dyalog
+InputVals ← ( Stock1PriceSeries Stock2PriceSeries ... StockNPriceSeries) (Stock1Position Stock2Position ... StockNPosition)
+```
+For example a small set of prices for AAPL, MSFT, GOOG prices for a portfolio with 10 shares AAPL, 12 shares MSFT, 9 shares GOOG:
+``` Dyalog
+┌────────────────────────────────────────────────────────────────────────────────────────────┬───────┐
+│┌───────────────────────────┬───────────────────────────┬──────────────────────────────────┐│10 12 9│
+││115 119 120 119 118 118 117│211 216 215 216 217 214 211│1763 1740 1752 1749 1777 1781 1770││       │
+│└───────────────────────────┴───────────────────────────┴──────────────────────────────────┘│       │
+└────────────────────────────────────────────────────────────────────────────────────────────┴───────┘
+```
